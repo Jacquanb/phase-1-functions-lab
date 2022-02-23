@@ -30,15 +30,16 @@ function distanceTravelledInFeet(start, destination) {
     return (start - destination) * 264
   }
 }
-let traveled = 128
+
 function calculatesFarePrice(start, destination) {
-  if (400 < traveled) {
-    return  (start + destination) * 0
+  let traveled = distanceTravelledInFeet(start, destination);
+  if (400 >= traveled) {
+    return  0
   } 
-    if (400 > traveled && 2000 < traveled) {
-    return (start - destination) + .56
-  } if (2000 > traveled && traveled < 2500) {
-    return start / 2
+    if (400 < traveled && 2000 >= traveled) {
+    return (traveled - 400) * .02
+  } if (2000 <= traveled && traveled <= 2500) {
+    return 50 /2
   } else {
     return 'cannot travel that far'
   }
